@@ -1,12 +1,51 @@
-# React + Vite
+# SkinHealth+
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkinHealth+ is a Vite + React application for skin analysis, consultations, and community interaction.
 
-Currently, two official plugins are available:
+## Tech stack
+- React 19 + Vite
+- Redux Toolkit
+- React Router
+- Tailwind CSS
+- Teachable Machine image model integration (frontend)
+- Flask + TensorFlow backend for custom image model inference/training
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Frontend setup
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+## Train your own skin disease model (DermNet dataset)
+Using the dataset you shared (`https://www.kaggle.com/datasets/shubhamgoel27/dermnet`):
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Download and extract the dataset so each disease is in a separate folder:
+   ```
+   dataset_root/
+     class_a/
+     class_b/
+     ...
+   ```
+2. Install backend dependencies:
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+3. Train model:
+   ```bash
+   python train_dermnet.py --dataset-dir /path/to/dataset_root --output-dir artifacts --epochs 10
+   ```
+4. Start inference API:
+   ```bash
+   python main.py
+   ```
+
+## Backend API
+- `GET /health` → returns model load status
+- `POST /predict-image` (multipart form-data, key: `image`) → returns top prediction + top-5 confidences
+
+> ⚠️ This is an AI screening tool and not a medical diagnosis. Always consult a dermatologist.
