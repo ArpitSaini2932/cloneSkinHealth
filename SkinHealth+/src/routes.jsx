@@ -7,7 +7,7 @@ import Consult from "./pages/Consult";
 import AboutUs from "./pages/AboutUs";
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import VideoCall from "./pages/VideoCall";
+import VideoCall from "./pages/videoCall";
 import Community from "./pages/Community";
 import SkinAnalysis from "./pages/SkinAnalysis";
 import Chat from "./pages/Chat";
