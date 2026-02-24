@@ -12,7 +12,7 @@ import Community from "./pages/Community";
 import SkinAnalysis from "./pages/SkinAnalysis";
 import Chat from "./pages/Chat";
 import Navbar from "./components/Navbar";
-import SkinScanPage from "./pages/SkinScanPage";``
+import SkinScanPage from "./pages/SkinScanPage";
 import Footer from "./components/footer";
 
 const PrivateRoute = ({ element }) => {

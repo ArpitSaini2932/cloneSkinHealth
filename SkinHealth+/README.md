@@ -1,12 +1,33 @@
-# React + Vite
+# SkinHealth+
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkinHealth+ is a Vite + React application for skin analysis, consultations, and community interaction.
 
-Currently, two official plugins are available:
+## Tech stack
+- React 19 + Vite
+- Redux Toolkit
+- React Router
+- Tailwind CSS
+- Teachable Machine image model integration
+- Appwrite Web SDK (authentication)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Configure environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+3. Fill `.env` with your Appwrite values:
+   - `VITE_APPWRITE_ENDPOINT`
+   - `VITE_APPWRITE_PROJECT_ID`
+4. Run development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Appwrite authentication
+- Signup uses `account.create(...)`.
+- Login uses `account.createEmailPasswordSession(...)` and `account.get(...)`.
+- Configuration lives in `src/lib/appwrite.js`.
